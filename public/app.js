@@ -4,3 +4,6 @@ function something() {
     window.localStorage.setItem('aaa', x);
     alert(x);
 }
+function add_to_cart() {
+    alert('Hello!');
+}
