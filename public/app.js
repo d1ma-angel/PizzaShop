@@ -4,6 +4,7 @@ function something() {
     window.localStorage.setItem('aaa', x);
     alert(x);
 }
+
 function add_to_cart(id) {
     var key = 'product_' + id;
     var x = window.localStorage.getItem(key);
@@ -11,6 +12,7 @@ function add_to_cart(id) {
     window.localStorage.setItem(key, x);
     alert('Items in your cart: ' + cart_get_number_of_items());
 }
+
 function cart_get_number_of_items() {
     var cnt = 0;
     for (var i = 0; i < window.localStorage.length; i++) {
@@ -22,4 +24,17 @@ function cart_get_number_of_items() {
         }
     }
     return cnt;
+}
+
+function cart_get_orders() {
+    var orders = '';
+    for (var i = 0; i < window.localStorage.length; i++) {
+        var key = window.localStorage.key(i); //получаем ключ
+        var value = window.localStorage.getItem(key); //получаем значение по ключу
+
+        if(key.indexOf('product_') == 0){
+            orders = orders + key + '=' + value + ',';
+        }
+    }
+    return orders;
 }
